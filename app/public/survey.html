@@ -120,15 +120,15 @@
 			<h3>
 				<strong>Question 7</strong>
 			</h3>
-			<h4>Are you sarcastic?</h4>
+			<h4>How much do you like reading?</h4>
 			<div class="form-group">
 				<select class="form-control" id="q7">
 					<option selected>Choose an option</option>
-					<option value="1">1 (Of course not, I say what I mean and take things literally.)</option>
+					<option value="1">1 (Never.)</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
 					<option value="4">4</option>
-					<option value="5">5 (One cannot live a fulfilling life without a little.)</option>
+					<option value="5">5 (One cannot live a fulfilling life without reading.)</option>
 				</select>
 			</div>
 			<h3>
@@ -179,11 +179,6 @@
 				Submit</button>
 
 			<hr>
-			<p>
-				<a href="/api/friends">API Friends List</a>
-				|
-				<a href="https://github.com/icesmooth2010/FriendFinder">Github repo</a>
-			</p>
 		</form>
 	</div>
 
@@ -194,7 +189,7 @@
 <script type="text/javascript">
 	$(".submit").on("click", function (event) {
 		event.preventDefault();
-		// Here we grab the form elements
+		//  grab the form elements
 		var newFriend = {
 			name: $("#friend-name").val().trim(),
 			photo: $("#friend-photo").val().trim(),
