@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kimberlyhoward/friendFinder/issues"
   },
-  "homepage": "https://github.com/kimberlyhoward/friendFinder#readme"
+  "homepage": "https://github.com/kimberlyhoward/friendFinder#readme",
+  "dependencies": {
+    "path": "^0.12.7"
+  }
 }

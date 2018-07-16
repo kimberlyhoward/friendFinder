@@ -207,7 +207,7 @@
 			]
 		};
 		console.log("user input = " + JSON.stringify(newFriend));
-		$.post("/api/friends", newFriend, function (data) {
+		$.post("/app/data/friends.js", newFriend, function (data) {
 			console.log("response: " + JSON.stringify(data));
 		});
 	});
