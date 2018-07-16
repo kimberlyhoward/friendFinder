@@ -2,7 +2,7 @@
   "name": "friendfinder",
   "version": "1.0.0",
   "description": "Find friends based on similar answers to survey questions.",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
