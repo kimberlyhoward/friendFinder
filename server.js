@@ -19,8 +19,8 @@ app.get('/', function (req, res) {
     res.end(JSON.stringify(req.body, null, 2))
 })
 
-  require('./app/routing/apiRoutes.js')(app);
-  require('./app/routing/htmlRoutes.js')(app);
+  require('./app/routes/apiRoutes.js')(app);
+  require('./app/routes/htmlRoutes.js')(app);
   
   app.listen(PORT, function() {
     // Log (server-side) when our server has started
