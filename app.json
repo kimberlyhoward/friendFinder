@@ -1,0 +1,17 @@
+{
+    "name": "FriendFinder",
+    "scripts": {
+    },
+    "env": {
+    },
+    "formation": {
+    },
+    "addons": [
+  
+    ],
+    "buildpacks": [
+      {
+        "url": "https://github.com/kimberlyhoward/FriendFinder.git"
+      }
+    ]
+  }
