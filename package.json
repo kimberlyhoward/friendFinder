@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/kimberlyhoward/friendFinder#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "friend": "^0.0.1",
     "path": "^0.12.7"
   }
 }
