@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+	<link rel="stylesheet" href="style.css">
 
 	<title>Survey Page</title>
 </head>
@@ -34,9 +34,9 @@
 			<h3>
 				<strong>Question 1</strong>
 			</h3>
-			<h4>How much is the smell of a wonderful breakfast a motivator to get you out of bed in the morning? Especially
-                if you don't have to make it yourself.
-            </h4>
+			<h4>How much is the smell of a wonderful breakfast a motivator to get you out of bed in the morning? Especially if you don't
+				have to make it yourself.
+			</h4>
 			<div class="form-group">
 				<select class="form-control" id="q1">
 					<option selected>Choose an option</option>
@@ -138,7 +138,7 @@
 			<div class="form-group">
 				<select class="form-control" id="q8">
 					<option selected>Choose an option</option>
-					<option value="1">1 (Heck no! NFL is WAY Better.)</option>
+					<option value="1">1 (Heck no! Don't make me go!.)</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
 					<option value="4">4</option>
@@ -173,42 +173,76 @@
 					<option value="5">5 (My mind never stops.)</option>
 				</select>
 			</div>
+<br>
+<!-- Submit Button -->
+<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
+		<i class="fa fa-check-circle" aria-hidden="true"></i>
+		Submit</button>
+  
+	  <br>
+	  <br>
 
-			<button type="submit" class="btn btn-primary btn-lg btn-block submit" id="submit">
-				<i class="fa fa-check-circle" aria-hidden="true"></i>
-				Submit</button>
-
-			<hr>
-		</form>
+	  <!-- Modal -->
+	  <div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+  
+		  <!-- Modal content-->
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+			  <h4 class="modal-title">Your Perfect Match!!!</h4>
+			</div>
+			<div class="modal-body">
+			  <h2 id='match-name'></h2>
+			  <img src="" alt="#" id='match-photo'>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		  </div>
+  
+		</div>
+	  </div>
+	  <!-- END Modal -->
+  
 	</div>
-
-</body>
-
-</html>
-
-<script type="text/javascript">
-	$(".submit").on("click", function (event) {
-		event.preventDefault();
-		//  grab the form elements
-		var newFriend = {
-			name: $("#friend-name").val().trim(),
-			photo: $("#friend-photo").val().trim(),
-			score:[
-				$('#q1').val().trim(),
-				$('#q2').val().trim(),
-				$('#q3').val().trim(),
-				$('#q4').val().trim(),
-				$('#q5').val().trim(),
-				$('#q6').val().trim(),
-				$('#q7').val().trim(),
-				$('#q8').val().trim(),
-				$('#q9').val().trim(),
-				$('#q10').val().trim()
-			]
-		};
-		console.log("user input = " + JSON.stringify(newFriend));
-		$.post("/app/data/friends.js", newFriend, function (data) {
-			console.log("response: " + JSON.stringify(data));
+  
+	<!-- jQuery CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+	<script>
+	  $('#submit').on('click', function () {
+		var object = {
+		  name: $('#name').val().trim(),
+		  photo: $('#photo').val().trim(),
+		  scores: [
+			parseFloat($('#q1').val()),
+			parseFloat($('#q2').val()),
+			parseFloat($('#q3').val()),
+			parseFloat($('#q4').val()),
+			parseFloat($('#q5').val()),
+			parseFloat($('#q6').val()),
+			parseFloat($('#q7').val()),
+			parseFloat($('#q8').val()),
+			parseFloat($('#q9').val()),
+			parseFloat($('#q10').val())
+		  ]
+		}
+		$.post("https://lit-coast-80381.herokuapp.com/api/friends", object, function (data) {
+		  console.log('sucessfull request');
+		  console.log(data.name);
+		  // manipulate dom to input information from the server response on winner
+		  $('#match-name').text(data.name);
+		  $('#match-photo').attr('src', data.photo)
+		  // turns modal on
+		  $('#myModal').modal();
+		  
 		});
-	});
-</script>
+	  });
+	</script>
+  
+  </body>
+  
+  </html>
